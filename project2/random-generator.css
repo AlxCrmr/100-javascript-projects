@@ -1,0 +1,85 @@
+body {
+    background-color: #DDF2E0;
+    color:#4791A2;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    font-size: 1.2rem;
+    color:#336975;
+    background-color: #7CB694;
+    border:  1px solid #4791A2;
+}
+button:hover {
+    background-color: #D6D8B8;
+    border: 1px solid #8FB2AD;
+    color:#8FB2AD;
+}
+button:focus {
+    outline:none;
+}
+
+input[type=text] {
+    padding-left:5px;
+    color:#4791A2;
+    border:  1px solid #4791A2;
+}
+.container {
+    border: 1px dashed grey;
+    margin: 1rem 25px 0;
+    padding: 20px;
+    width: 850px;
+    height: 300px;
+    float:left;
+
+}
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+#randomNumber {
+    height: 45px;
+    width: 30px;
+    font-size: 1.2rem;
+}
+#randomNumReturn{
+font-size: 2rem;
+}
+
+span {
+    font-size:  2rem;
+}
+input#numOfNums, input#minNum, input#maxNum {
+     width: 30px;
+     height: 2rem;
+     position:relative;
+     bottom: 10px;
+ }
+
+ #numReturn2 {
+     letter-spacing: 1px;
+     font-size: 1.3rem;
+    word-wrap: break-word;
+ }
+
+ input[type=radio] {
+     margin-bottom: 15px;
+ }
+
+#colorCode {
+    font-size: 1.5rem;
+}
+#colorCodeBg {
+    width: 100px;
+    height: 40px;
+    position:relative;
+    bottom: 60px;
+    left: 200px;
+}

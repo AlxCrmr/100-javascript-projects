@@ -3,13 +3,15 @@
 **Main target:** ***Practice vanilla JavaScript and level up my JavaScript skills.***
 
 ## JavaScript Goals
+- Become more comfortable using JavaScript
 - Gain a deeper understanding of JavaScript
 
 ## Projects
 
 | No  |  Project  |  Project Description |
 | :------------: | ------------ | :------------: |
-| 1  | [Al Bhed Translator]()  | A app that translates English to Al Bhed or Al Bhed to English |
+| 1  | Al Bhed Translator[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project1) [(CodePen)](https://codepen.io/AlxCrmr/full/qXKeRg/)  | A app that translates English to Al Bhed or Al Bhed to English |
+| 2  | Random Generator[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project2) [(CodePen)](https://codepen.io/AlxCrmr/pen/XaBgpN)  | A compilation on random generators |
 
 
 ## Project idea's

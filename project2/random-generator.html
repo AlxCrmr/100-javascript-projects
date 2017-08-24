@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Random Generator</title>
+        <link rel="stylesheet" href="random-generator.css">
+    </head>
+    <body>
+        <h1>Random Generator's</h1>
+
+        <div class="container single-num">
+                <p class="section-title">Generate a single number</p>
+                <p><label for="randomNumber">Enter a positive number:</label></p>
+                <input type="text" name="randomNumber" id="randomNumber">
+                <button type="submit" id="randomNumberBtn">Generate</button>
+                <p id="randomNumReturn"></p>
+        </div>
+
+        <div class="container .multi-num">
+            <p class="section-title">Generate multiple numbers</p>
+            <span>I want </span> <input type="text" id="numOfNums"> <span> random numbers all between </span>
+            <input type="text" id="minNum"> <span> and </span> <input type="text" id="maxNum"><span>.</span>
+            <button type="submit" id="randNumBtn2">Generate</button>
+            <p id="numReturn2"></p>
+
+        </div>
+
+        <div class="container colors">
+            <p class="section-title">Generate a random color</p>
+
+                <p>What form do you want your color in?</p>
+                <label for="hex"><input type="radio" name="colorType" id="hex">Hexidecimal</label><br>
+                <label for="rgb"><input type="radio" name="colorType" id="rgb">RGB<br></label>
+
+            <button type="submit" id="randColorBtn">Generate</button>
+            <p id="colorCode"></p> <div id="colorCodeBg"></div>
+
+        </div>
+
+        <div class="container">
+            <p class="section-title"></p>
+        </div>
+
+        <script src="random-generator.js" charset="utf-8"></script>
+    </body>
+</html>
