@@ -1,0 +1,48 @@
+body {
+    background-color: ;
+    font-family: sans-serif;
+}
+
+textarea {
+    resize: none;
+    border: 1px solid #E18A07;
+}
+
+textarea:focus {
+    outline: none !important;
+    border: 1px solid #C0C0C0;
+}
+
+button {
+    background-color: #FFF;
+    border: 1px solid #E18A07;
+    width: 200px;
+    height: 50px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 2.5rem;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#credit {
+    text-align: center;
+    font-size: .7rem;
+}
+
+#credit a {
+    text-decoration: none;
+    color:#C0C0C0;;
+}
+
+#credit a:hover {
+    color:#E18A07;
+}
