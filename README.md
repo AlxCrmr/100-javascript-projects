@@ -12,6 +12,7 @@
 | :------------: | ------------ | :------------: |
 | 1  | Al Bhed Translator[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project1) [(CodePen)](https://codepen.io/AlxCrmr/full/qXKeRg/)  | A app that translates English to Al Bhed or Al Bhed to English |
 | 2  | Random Generator[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project2) [(CodePen)](https://codepen.io/AlxCrmr/pen/XaBgpN)  | A compilation on random generators |
+| 3  |Key Printer[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project3) [(CodePen)](https://codepen.io/AlxCrmr/pen/WEgrBO)  | Shows you the key you pressed and the keycode |
 
 
 ## Project idea's
@@ -20,3 +21,5 @@
 - Mastermind
 - Strong password generator
 - Fortune Teller (Horoscope)
+- Minesweeper
+- Guessing Game
