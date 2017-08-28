@@ -39,3 +39,19 @@ function dateFormat () {
 
 }
 dateFormat();
+
+/* =========== Question 4 ============= */
+var a = 5, b = 6,  c = 7;
+var perimeter = (a + b + c)/2;
+var area =  Math.sqrt(perimeter*(perimeter - a)*(perimeter - b)*(perimeter - c));
+document.getElementById("question4-answer").innerHTML = "The area of a square with side lengths of 5,6, and 7 is: " + area;
+
+/* =========== Question 5 ============= */
+var word ='w3resource';
+var i = 0;
+console.log("===== QUESTION 5 =====" );
+while ( i < word.length) {
+word= word.substr(1) + word.substr(0, 1);
+    i++;
+    console.log(word);
+}
