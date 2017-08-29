@@ -1,0 +1,127 @@
+html, body {
+    font-family: sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    color: #FFF;
+    margin-top: 100px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    background-color: #111;
+    color: #FFF;
+    font-weight: 300;
+    margin-bottom: 0;
+    padding: 10px;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #FFF;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFF ;
+    color: #000;
+    border: 1px solid  #000;
+    font-weight: 700;
+}
+
+input[type=text] {
+    border:none;
+    height: 45px;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    color: #333;
+}
+
+.page-container {
+    width: 90%;
+    margin: auto;
+}
+
+.container{
+    margin: 0;
+    padding: 20px 50px;
+    background-color: #3d3d3d;
+    font-size: 1.2rem;
+    color: #e0e0e0;
+}
+
+.example {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+#navbar {
+    height:50px;
+    width: 100%;
+    background-color:#000;
+    position: fixed;
+    top:0;
+}
+
+#navbar a{
+    text-decoration: none;
+    display: inline-block;
+    color:#FFF;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 20px;
+    margin: 20px 20px 0 20px;
+    position:relative;
+    left: 5px;
+    float:left;
+}
+
+#navbar a:hover{
+    font-weight: 700;
+}
+#navbar ul {
+    list-style: none;
+    margin:auto;
+}
+
+
+#question10-input1, #question10-input2 {
+    width: 50px;
+}
+
+select {
+    height: 47px;
+    width: 50px;
+    font-size: 2rem;
+    position: relative;
+    top: 5px;
+}
+
+#question11-input {
+    width: 50px;
+}
+#temp {
+    width: 100px;
+    font-size: 1rem;
+    position: relative;
+    top:0px;
+}
+
+#question12-btn{
+    width: 200px;
+}
+
+#question15-btn {
+    position: relative;
+    top:-10px;
+}
