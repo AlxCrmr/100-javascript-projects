@@ -121,7 +121,11 @@ select {
     width: 200px;
 }
 
-#question15-btn {
+#question15-btn, #question16-btn,  #question17-btn {
     position: relative;
     top:-10px;
+}
+
+#question16-input, #question16-input2 {
+    width: 50px;
 }

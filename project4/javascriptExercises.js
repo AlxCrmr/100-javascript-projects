@@ -181,3 +181,64 @@ question15btn.addEventListener("click", function() {
 });
 
 /* =========== Question 16  ============= */
+var question16Input =document.getElementById("question16-input");
+var question16Input2  =document.getElementById("question16-input2");
+var question16Answer = document.getElementById("question16-answer");
+var question16btn = document.getElementById("question16-btn");
+
+question16btn.addEventListener("click", function() {
+    if (question16Input.value ===question16Input2.value) {
+        question16Answer.innerHTML = (parseInt(question16Input.value) + parseInt(question16Input2.value)) * 3;
+    } else {
+        question16Answer.innerHTML = parseInt(question16Input.value) + parseInt(question16Input2.value);
+    }
+});
+
+/* =========== Question 17  ============= */
+
+var question17Input =document.getElementById("question17-input");
+var question17Answer = document.getElementById("question17-answer");
+var question17btn = document.getElementById("question17-btn");
+
+question17btn.addEventListener("click", function() {
+    if (parseInt(question17Input.value) > 19) {
+        question17Answer.innerHTML = (parseInt(question17Input.value) - 19) * 3;
+    } else {
+        question17Answer.innerHTML = 19 - parseInt(question17Input.value);
+    }
+});
+
+/* =========== Question 18  ============= */
+function numberCheck(num1, num2) {
+    if (num1 === 50 || num2 ===50) {
+        return true;
+    }else if (num1 + num2 === 50) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/* =========== Question 19  ============= */
+function withinTwenty(num) {
+    return ((Math.abs(100 - num) <= 20) || (Math.abs(400 - num) <= 20));
+    }
+
+/* =========== Question 20  ============= */
+function posAndNeg (num1, num2) {
+    if (num1 > 0 && num2 < 0 || num2 > 0 && num1 < 0){
+        return true;
+    } else {
+        return false;
+    }
+}
+/* =========== Question 21  ============= */
+
+function pyString (string) {
+    var firstLetters = string.substring(0,2).toLowerCase();
+    if (firstLetters === "py") {
+        return string;
+    } else {
+        return "Py" + string;
+    }
+
+}
