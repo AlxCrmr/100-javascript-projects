@@ -240,5 +240,14 @@ function pyString (string) {
     } else {
         return "Py" + string;
     }
+}
 
+/* =========== Question 22  ============= */
+function removeChar (str, position) {
+    var newStr = str.substring(0,position - 1) + str.substring(position, str.length);
+    return newStr;
+}
+/* =========== Question 23  ============= */
+function switchChars (str) {
+    return  str.substr(-1)+ str.slice(1,-1) + str.substr(0, 1) 
 }
