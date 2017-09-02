@@ -249,5 +249,129 @@ function removeChar (str, position) {
 }
 /* =========== Question 23  ============= */
 function switchChars (str) {
-    return  str.substr(-1)+ str.slice(1,-1) + str.substr(0, 1) 
+    if (str.length <= 1) {
+        return str;
+    } else {
+        return  str.substr(-1)+ str.slice(1,-1) + str.substr(0, 1)
+    }s
 }
+/* =========== Question 24  ============= */
+function  addToFrontBack (str) {
+    return str.substr(0, 1) + str + str.substr(0, 1);
+}
+/* =========== Question 25  ============= */
+function positiveMultipleOf3or7 (num) {
+    if (num % 3 === 0 &&  num % 7 === 0) {
+        return "Multiple of 3 and 7"
+    } else if( num % 3 === 0) {
+        return "Multiple of 3"
+    } else if ( num % 7 === 0) {
+        return "Multiple of 7"
+    } else {
+        return "Not a multiple of 3 or 7"
+    }
+}
+/* =========== Question 26  ============= */
+function add3Chars (str) {
+    if(str.length >= 3) {
+        return str.substr(0,3) + str + str.substr(0,3);
+    } else {
+        return str;
+    }
+}
+/* =========== Question 27  ============= */
+function startsWithJava (str) {
+    if(str.length < 4) {
+        return false;
+    } else if (str.substr(0,4) === "Java") {
+        return true;
+    }else {
+        return false;
+    }
+}
+/* =========== Question 28  ============= */
+function between50and99 (num1, num2) {
+    if (num1 >= 50 && num1 <= 99 || num2 >= 50 && num2 <= 99) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/* =========== Question 29  ============= */
+function numsBetween50and99 (num1, num2, num3) {
+    if (num1 >= 50 && num1 <= 99 || num2 >= 50 && num2 <= 99 || num3 >= 50 && num3 <= 99) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/* =========== Question 30  ============= */
+function containsScript(str) {
+    if(str.length < 6) {
+        return str;
+    } else if(str.slice(4,10) == "Script") {
+        return str.substr(0,4) + str.substr(10);
+    } else {
+        return str;
+    }
+}
+/* =========== Question 31  ============= */
+function largestNumber(num1, num2, num3){
+    return Math.max(num1, num2, num3);
+}
+/* =========== Question 32  ============= */
+function closerTo100(num1, num2) {
+    var first = Math.abs(num1 - 100);
+    var second = Math.abs(num2 - 100);
+    if(first == second){
+        return "Both are an equal amount away from 100"
+    }else if (first < second) {
+        return num1;
+    } else {
+        return num2;
+    }
+}
+/* =========== Question 33  ============= */
+function inRange(num1, num2) {
+    if( num1 >= 40 && num1 <= 60 || num1 >= 70 && num1 <= 100 && num2 >= 40 && num2 <= 60 || num2 >= 70 && num2 <= 100){
+        return "Both in range."
+    }else if( num1 >= 40 && num1 <= 60 || num1 >= 70 && num1 <= 100 ){
+        return num1 + " is in range"
+    } else if ( num2 >= 40 && num2 <= 60 || num2 >= 70 && num2 <= 100 ){
+        return num2 + " is in range"
+    } else {
+        return "Not in range."
+    }
+}
+/* =========== Question 34  ============= */
+function inRangeBiggerNum (num1, num2) {
+    if ( num1 >= 40 && num1 <= 60 && num2 >= 40 && num2 <= 60 ) {
+        return Math.max(num1, num2);
+    } else {
+        return false;
+    }
+}
+/* =========== Question 35  ============= */
+function howManyChars(str, char) {
+    let total = 0;
+    for ( let i = 0; i < str.length; i++ ) {
+        if( str.charAt(i) == char ) {
+            total ++;
+        }
+    }
+        console.log(`there are ${total} ${char}'s`);
+        return total >= 2 && total <= 4;
+}
+/* =========== Question 36  ============= */
+function sameEndDigit (num1, num2, num3) {
+    return (Math.abs(num1) % 10) === (Math.abs(num2) % 10) && (Math.abs(num1) % 10) === (Math.abs(num3) % 10);
+}
+/* =========== Question 37  ============= */
+function lowerUpperString (str) {
+    if ( str.length < 3) {
+        return str.toUpperCase();
+    } else {
+        return str.substr(0,4).toLowerCase() + str.substr(3);
+    }
+}
+/* =========== Question 38  ============= */
