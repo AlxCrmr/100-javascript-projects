@@ -375,3 +375,19 @@ function lowerUpperString (str) {
     }
 }
 /* =========== Question 38  ============= */
+function examMarks (marks, isExam) {
+    if (isExam) {
+        return marks >= 90 && marks <= 100;
+    } else {
+        return marks >= 89 && marks <= 100;
+    }
+}
+/* =========== Question 39  ============= */
+function sumInRange (num1, num2) {
+    if (num1 + num2 >= 50 && num1 + num2 <= 80) {
+        return 65;
+    } else {
+        return 80;
+    }
+}
+/* =========== Question 40  ============= */
