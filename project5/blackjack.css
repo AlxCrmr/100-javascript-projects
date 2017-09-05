@@ -1,0 +1,24 @@
+.card {
+    width: 200px;
+    height: 300px;
+    border: solid black 1px;
+    float: left;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.card-value {
+    font-size: 5rem;
+    text-align: center;
+    margin:50px 0 50px;
+}
+
+.card-class {
+    font-size: 3rem;
+    margin: 10px;
+}
+
+button {
+    width: 100px;
+    height: 20px;
+}

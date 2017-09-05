@@ -14,6 +14,7 @@
 | 2  | Random Generator[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project2) [(CodePen)](https://codepen.io/AlxCrmr/pen/XaBgpN)  | A compilation on random generators |
 | 3  |Key Printer[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project3) [(CodePen)](https://codepen.io/AlxCrmr/pen/WEgrBO)  | Shows you the key you pressed and the keycode |
 | 4  |JavaScript Exercises[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project4) [(CodePen)](https://codepen.io/AlxCrmr/pen/GvXXYR)  | Just answering some JavaScript Exercise problems |
+| 5  |BlackJack[(GitHub)](https://github.com/AlxCrmr/100-javascript-projects/tree/master/project5) [(CodePen)](https://codepen.io/AlxCrmr/pen/rzbVZj)  | Making a small Black Jack Game |
 
 
 ## Project idea's
