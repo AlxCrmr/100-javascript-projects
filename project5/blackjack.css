@@ -1,21 +1,37 @@
 .card {
     width: 200px;
     height: 300px;
-    border: solid black 1px;
+    border: solid black 2px;
     float: left;
     margin: 20px;
     border-radius: 10px;
 }
 
 .card-value {
-    font-size: 5rem;
+    font-size: 3rem;
     text-align: center;
-    margin:50px 0 50px;
 }
 
 .card-class {
-    font-size: 3rem;
-    margin: 10px;
+    font-size: 6rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+.card-value--pull-left {
+    float:left;
+    margin: 0 0 0 20px;
+}
+
+.card-value--pull-right {
+    float:right;
+    margin: 35px 20px 0 0;
+}
+.red {
+    color:red;
+}
+
+.black {
+    color: black;
 }
 
 button {
