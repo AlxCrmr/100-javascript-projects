@@ -2,14 +2,20 @@ const cards =  ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
 const cardType = ["&spades;", "&hearts;", "&clubs;", "&diams;"];
 const startGame = document.querySelector(".start-btn");
 const hitBtn = document.querySelector(".hit-btn");
-const cardContainer = document.querySelector('#card-container');
-const userScore = document.querySelector(".card-score");
+const playerCardContainer = document.querySelector('#player-card-container');
+const computerCardContainer =document.querySelector('#computer-card-container');
+const userScore = document.querySelector(".player-card-score");
+const compScore = document.querySelector(".computer-card-score");
 let compCards = [];
 let playerCards = [];
 let compSuits = [];
 let playerSuits = [];
-let cardNum = 0;
+let playerCardNum = 0;
+let computerCardNum = 0;
 let cardSum;
+let start = true;
+let playerTurn = true;
+let compSum = 0
 
 
 //  Generate random numbers
@@ -28,32 +34,99 @@ function generateCardColor() {
 
 //  Generate Cards
 function generateCard() {
-    cardContainer.innerHTML += `<div class="card card${cardNum}">
-        <p class="card-value card-value--pull-left">${playerCards[cardNum]}</p>
-        <p class="card-class">${playerSuits[cardNum]}</p>
-        <p class="card-value card-value--pull-right">${playerCards[cardNum]}</p>
+
+if(start && playerTurn){
+    playerCardContainer.innerHTML += `<div class="player-card card${playerCardNum}">
+        <p class="card-value card-value--pull-left">${playerCards[playerCardNum]}</p>
+        <p class="card-class">${playerSuits[playerCardNum]}</p>
+        <p class="card-value card-value--pull-right">${playerCards[playerCardNum]}</p>
     </div>`
-    generateCardColor()
+    playerCardNum++;
+    playerCardContainer.innerHTML += `<div class="player-card card${playerCardNum}">
+        <p class="card-value card-value--pull-left">${playerCards[playerCardNum]}</p>
+        <p class="card-class">${playerSuits[playerCardNum]}</p>
+        <p class="card-value card-value--pull-right">${playerCards[playerCardNum]}</p>
+    </div>`
+    playerTurn = false;
+}else if (start && playerTurn === false){
+    computerCardContainer.innerHTML += `<div class="computer-card card${computerCardNum}">
+        <p class="card-value card-value--pull-left">${compCards[computerCardNum]}</p>
+        <p class="card-class">${compSuits[computerCardNum]}</p>
+        <p class="card-value card-value--pull-right">${playerCards[computerCardNum]}</p>
+    </div>`
+    computerCardNum++;
+    computerCardContainer.innerHTML += `<div class="computer-card card${computerCardNum}">
+        <p class="card-value card-value--pull-left">${compCards[computerCardNum]}</p>
+        <p class="card-class">${compSuits[computerCardNum]}</p>
+        <p class="card-value card-value--pull-right">${playerCards[computerCardNum]}</p>
+    </div>`
+    start = false;
+    playerTurn = true;
+}else {
+    if(playerTurn) {
+        playerCardContainer.innerHTML += `<div class="player-card card${playerCardNum}">
+            <p class="card-value card-value--pull-left">${playerCards[playerCardNum]}</p>
+            <p class="card-class">${playerSuits[playerCardNum]}</p>
+            <p class="card-value card-value--pull-right">${playerCards[playerCardNum]}</p>
+        </div>`
+        playerCardNum++;
+        console.log(playerCardNum);
+        playerTurn = false;
+    } else if (playerTurn === false) {
+        computerCardContainer.innerHTML += `<div class="computer-card card${computerCardNum}">
+            <p class="card-value card-value--pull-left">${compCards[computerCardNum]}</p>
+            <p class="card-class">${compSuits[computerCardNum]}</p>
+            <p class="card-value card-value--pull-right">${playerCards[computerCardNum]}</p>
+        </div>`
+        computerCardNum++;
+        console.log(computerCardNum);
+        playerTurn = true;
+    }
+}
+    generateCardColor();
+    setTimeout(function(){ computerTurn();}, 200);
 }
 
 //  Calculate the  sum of the cards
 function calculateCardVals() {
     cardSum = 0;
-    for(let i = 0; i <= cardNum; i++) {
-        if(playerCards[i] === "K"){
-            playerCards[i] = 10;
-        }else if(playerCards[i] === "Q"){
-            playerCards[i] = 10;
-        }else if(playerCards[i] === "J"){
-            playerCards[i] = 10;
-        }else if(playerCards[i] === "A"){
-            if(cardSum + 11 > 21) {
-                playerCards[i] = 1;
+    compSum  = 0;
+    let cardVal;
+    let turn;
+
+    if(playerTurn) {
+        turn = playerCardNum;
+    } else if (playerTurn === false){
+        turn = computerCardNum;
+    }
+
+    for(let i = 0; i <= turn; i++) {
+        if(playerTurn) {
+            cardVal = playerCards[i];
+        } else if (playerTurn === false){
+            cardVal = compCards[i];
+        }
+
+        if(cardVal === "K"){
+            cardVal = 10;
+        }else if(cardVal === "Q"){
+            cardVal = 10;
+        }else if(cardVal === "J"){
+            cardVal = 10;
+        }else if(cardVal === "A"){
+            if(turn + 11 > 21) {
+                cardVal = 1;
             }else {
-                playerCards[i] = 11;
+                cardVal = 11;
             }
         }
-        cardSum += parseInt(playerCards[i]);
+
+        if (playerTurn === false) {
+            compSum  += parseInt(cardVal);
+        }else {
+            cardSum += parseInt(cardVal);
+        }
+        compScore.innerHTML= compSum;
         userScore.innerHTML= cardSum;
     }//for
     //console.log(cardSum);
@@ -64,11 +137,19 @@ function calculateCardVals() {
 function winCondition() {
      if (cardSum === 21) {
             setTimeout(function(){ alert(userScore.innerHTML= "21 YOU WIN");
-        resetGame(); }, 100);
+        resetGame(); }, 200);
     } else if (cardSum > 21 ) {
         setTimeout(function(){ alert(userScore.innerHTML= `${cardSum} Over 21 You lose!`);
-    resetGame(); }, 100);
+    resetGame(); }, 200);
     }
+
+    if (compSum === 21) {
+           setTimeout(function(){ alert(compScore.innerHTML= "21 COMPUTER WINS");
+       resetGame(); }, 200);
+   } else if (compSum > 21 ) {
+       setTimeout(function(){ alert(compScore.innerHTML= `${compSum} is over 21. You win!`);
+   resetGame(); }, 200);
+   }
 }
 
 
@@ -80,10 +161,17 @@ function generateCardVals() {
         playerCards.push(cards[generateNum(0,12)]);
         playerSuits.push(cardType[generateNum(0,3)]);
     }
-    //console.log(`Computer Card ${compCards} Numbers`);
-    //console.log(`Computer Card Suits ${compSuits}`);
-    //console.log(`Player Card ${playerCards} Numbers`);
-    //console.log(`Player Card Suits ${playerSuits}`);
+}
+
+// Computers turn
+function computerTurn(){
+    if(playerTurn ===false){
+        if (compSum < 17){
+            playerTurn = false;
+            generateCard();
+            winCondition()
+        }
+    }
 }
 
 //  Reset the game
@@ -93,28 +181,26 @@ function resetGame() {
     compSuits = [];
     playerSuits = [];
     cardNum = 0;
-    cardContainer.innerHTML =   "";
+    compSum = 0;
+    computerCardContainer.innerHTML =   "";
+    playerCardContainer.innerHTML =   "";
     userScore.innerHTML= ""
+    compScore.innerHTML = "";
+    start = true;
+    playerTurn = true;
+    generateCardVals();
 }
 
 startGame.addEventListener("click", function () {
     resetGame() ;
-    generateCardVals();
     generateCard();
-    cardNum++;
-    generateCard();
-    //console.log(`ComputerCard 1: ${compCards[0]} ${compSuits[0]}`);
-    //console.log(`ComputerCard 2: ${compCards[1]} ${compSuits[1]}`);
-    //console.log(`PlayerCard 1: ${playerCards[0]} ${playerSuits[0]}`);
-    //console.log(`PlayerCard 2: ${playerCards[1]} ${playerSuits[1]}`);
     calculateCardVals();
-    winCondition()
+    winCondition();
+    computerTurn();
+
 });
 
 hitBtn.addEventListener("click", function () {
-    cardNum++;
     generateCard();
-    //console.log(`ComputerCard: ${compCards[cardNum]} ${compSuits[cardNum]}`);
-    //console.log(`PlayerCard: ${playerCards[cardNum]} ${playerSuits[cardNum]}`);
     calculateCardVals();
 });
