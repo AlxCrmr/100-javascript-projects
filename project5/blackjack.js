@@ -6,8 +6,6 @@ const startGame = document.querySelector(".start-btn");
 const hitBtn = document.querySelector(".hit-btn");
 const playerCardContainer = document.querySelector('#player-card-container');
 const compCardContainer =document.querySelector('#computer-card-container');
-const playerScoreText = document.querySelector(".player-card-score");
-const compScoreText = document.querySelector(".computer-card-score");
 let playerArr = [];
 let compArr = [];
 let playerTurn = true;
@@ -24,73 +22,99 @@ function resetGame() {
   turn = 1;
   playerScore = 0;
   compScore = 0;
+  playerCardContainer.innerHTML = `<div class="player-card-score">${playerScore}</div>`;
+  compCardContainer.innerHTML = `<div class="computer-card-score">${compScore}</div>`;
 }
 //  Generate random numbers
 function generateNum (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Generate random card
-function generateCard () {
-    let randomCardNum = cards[generateNum(0,12)];
-    let randomCardSuit = cardType[generateNum(0,3)];
-    if(turn === 1){
-        playerArr.push(cards[generateNum(0,12)]);
-        playerArr.push(cards[generateNum(0,12)]);
-        computerTurn(cards[generateNum(0,12)]);
-        computerTurn(cards[generateNum(0,12)]);
-        winCondition(playerArr);
-        winCondition(compArr);
-        turn++;
-    }else  if(playerTurn) {
-        playerArr.push(randomCardNum);
-        playerTurn = false;
-        computerTurn(cards[generateNum(0,12)]);
-    } else {
-        computerTurn(randomCardNum)
-        playerTurn = true;
-    }
-    //console.log(`Card Number: ${randomCardNum} Card Suit: ${randomCardSuit}`);
-    console.log(`Player Array:  ${playerArr}
-Computer Array: ${compArr}`);
+function gameScore() {
+    //console.log("player ", playerArr, playerScore);
+    //console.log("computer ", compArr, compScore);
+     document.querySelector(".computer-card-score").innerHTML =   `${compScore}`;
+     document.querySelector(".player-card-score").innerHTML =  `${playerScore}`;
+}
 
-winCondition(playerArr);
-winCondition(compArr);
+// Creates card structure
+function makeCard(arr, container,  cardNum) {
+    arr.push(cardNum);
+    container.innerHTML += `<div class="player-card card">
+        <p class="card-value card-value--pull-left">${cardNum}</p>
+        <p class="card-class">${cardType[generateNum(0,3)]}</p>
+        <p class="card-value card-value--pull-right">${cardNum}</p>
+    </div>`
 }
 
 // Computer Turn
-function computerTurn(num){
+function computerTurn(num, card){
     if(turn === 1){
-        compArr.push(num);
+        //compArr.push(num);
+        makeCard(compArr, compCardContainer, num);
+        winCondition(compArr);
     }else if(compArr.reduce(function (a, b){ return a + b;}, 0) < 17){
-        compArr.push(num);
+        //compArr.push(num);
+        makeCard(compArr, compCardContainer, num);
+        winCondition(compArr);
         playerTurn = true;
     }else {
         console.log("Computer Stands");
     }
 }
 
+// Generate random card
+function generateCard () {
+    let randomCardNum = cards[generateNum(0,12)];
+    let randomCardSuit = cardType[generateNum(0,3)];
+
+    if(turn === 1){
+        makeCard(playerArr, playerCardContainer, cards[generateNum(0,12)]);
+        makeCard(playerArr, playerCardContainer, cards[generateNum(0,12)]);
+        winCondition(playerArr);
+        computerTurn(cards[generateNum(0,12)]);
+        computerTurn(cards[generateNum(0,12)]);
+        turn++;
+    }else  if(playerTurn) {
+        makeCard(playerArr, playerCardContainer, cards[generateNum(0,12)]);
+        winCondition(playerArr);
+        playerTurn = false;
+        computerTurn(cards[generateNum(0,12)]);
+    } else {
+        computerTurn(randomCardNum);
+        winCondition(compArr);
+        playerTurn = true;
+    }
+    //console.log(`Card Number: ${randomCardNum} Card Suit: ${randomCardSuit}`);
+    console.log(`Player Array:  ${playerArr}
+Computer Array: ${compArr}`);
+}
+
 // check to see if someone has won
 function winCondition(arr) {
-    let total;
-    for (let i = 0; i < arr.length; i++){
-        if(arr[i] === "K" || arr[i] === "Q" || arr[i] === "J") {
-            arr[i] = 10;
-        } else if ( arr[i] === "A"){
-            if(total + 11 <= 21){
-                arr[i] = 11;
-            }else {
-                arr[i] = 1;
+    function total(arr){
+        return arr.reduce(function (a, b){ return a + b;});
+    }
+
+    if(playerTurn){
+        playerScore = total(arr);
+    } else {
+         compScore = total(arr);
+    }
+
+    // Aces arent working properly
+    console.log(total(arr), "TOTAL");
+        for (let i = 0; i < arr.length; i++){
+            if(arr[i] === "K" || arr[i] === "Q" || arr[i] === "J") {
+                arr[i] = 10;
+            } else if ( arr[i] === "A"){
+                if(total(arr) <= 10){
+                    arr[i] = 11;
+                }else {
+                    arr[i] = 1;
+                }
             }
-        }
 
-        total = arr.reduce(function (a, b){ return a + b;}, 0);
-
-        if(playerTurn){
-            playerScore = total;
-        } else {
-             compScore = total;
-        }
 
         if(playerScore === 21 && playerTurn){
             console.log("21, You win!");

@@ -17,7 +17,7 @@ border: 3px solid #FFF;
 
 #player-card-container {
     width: 100%;
-    height: 350px;
+    height: 400px;
     background-color: lightgreen;
 }
 .player-card {
@@ -55,7 +55,7 @@ border: 3px solid #FFF;
 
 #computer-card-container {
     width: 100%;
-    height: 250px;
+    height: 400px;
     background-color: green;
 }
 .computer-card {
