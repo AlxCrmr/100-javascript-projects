@@ -391,3 +391,23 @@ function sumInRange (num1, num2) {
     }
 }
 /* =========== Question 40  ============= */
+function checkIntegers (num1, num2) {
+    if( num1 === 8 || num2 === 8){
+        return true;
+    }
+    if(num1 + num2 === 8){
+        return true;
+    }
+    return false;
+}
+/* =========== Question 41  ============= */
+function checkThreeIntegers (num1, num2, num3) {
+    if( num1 === num2 && num2 === num3){
+        return 30;
+    }
+    if(num1 === num2 || num1 === num3 || num3 === num2){
+        return 20;
+    }
+    return 40;
+}
+/* =========== Question 42  ============= */
