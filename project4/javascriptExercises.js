@@ -25,6 +25,7 @@ function displayTime () {
 displayTime();
 
 
+
 /* =========== Question 2 ============= */
 
 document.getElementById("question2-answer").addEventListener("click", function(){

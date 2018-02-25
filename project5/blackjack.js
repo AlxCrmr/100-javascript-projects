@@ -17,7 +17,7 @@ let compScore = 0;
 // Reset game
 function resetGame() {
     playerArr = [];
-   compArr = [];
+  compArr = [];
   playerTurn = true;
   turn = 1;
   playerScore = 0;
